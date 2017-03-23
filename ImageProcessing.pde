@@ -12,11 +12,15 @@ PImage YUV;
 PImage R;
 PImage G;
 PImage B;
+PImage fai_iconi;
+PGraphics fai_icong;
+String fai_filename;
 boolean disimage = false;
 void setup()
 {
   size(800,600);
   background(255);
+  frameAndicon("", data/icon.png);
 }
 
 void draw()
@@ -66,6 +70,19 @@ void draw()
   }
   }
   interfaccia();
+}
+
+void frameAndIcon(String frameText, String iconFilename) {
+  if ( fai_filename == null || !fai_filename.equals(iconFilename) ) {
+    fai_iconi = loadImage(iconFilename);
+    fai_icong = createGraphics(16, 16, JAVA2D);
+    fai_filename = iconFilename;
+  }
+  frame.setTitle( frameText );
+  fai_icong.beginDraw();
+  fai_icong.image( fai_iconi, 0, 0 );
+  fai_icong.endDraw();
+  frame.setIconImage(fai_icong.image);
 }
 
 void mousePressed()
