@@ -20,7 +20,7 @@ void setup()
 {
   size(800,600);
   background(255);
-  frameAndicon("", data/icon.png);
+  frameAndIcon("", "data/icon.png");
 }
 
 void draw()
